@@ -34,5 +34,8 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "reducible"
 
+// The library: every `reducible-*` project is published.
+include(":reducible-core")
+
 // The repository's own detekt rules, loaded into every module's detekt task.
 include(":detekt-rules")
