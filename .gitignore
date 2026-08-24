@@ -1,0 +1,26 @@
+# Gradle
+.gradle/
+build/
+**/build/
+local.properties
+
+# Kotlin
+.kotlin/
+
+# Node (formatter and linter toolchain)
+node_modules/
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# iOS / Xcode
+xcuserdata/
+DerivedData/
+Pods/
+*.xcworkspace/xcshareddata/swiftpm/
+.derived-data-log-*

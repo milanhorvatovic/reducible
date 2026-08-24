@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 4
+
+[*.{kt,kts}]
+ktlint_code_style = ktlint_official
+# Composable functions are PascalCase by Compose convention.
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+[*.kts]
+# Build scripts read better with `libs.versions.x.get().toInt()` on one line.
+ktlint_chain_method_rule_force_multiline_when_chain_operator_count_greater_or_equal_than = unset
+
+[*.swift]
+indent_size = 4
+
+[*.{yml,yaml,toml,json}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
