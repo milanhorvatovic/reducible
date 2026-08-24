@@ -1,0 +1,14 @@
+{
+  // markdownlint is the Markdown linter; prettier (.prettierrc.json) formats.
+  // Prose is never hard-wrapped, so the line-length rule is off; the others
+  // relaxed here are layout preferences prettier already settles.
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": { "siblings_only": true },
+    "MD033": false,
+    "MD041": false,
+    "MD060": false
+  },
+  "ignores": ["node_modules/**", "**/build/**"]
+}

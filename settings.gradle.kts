@@ -33,3 +33,6 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "reducible"
+
+// The repository's own detekt rules, loaded into every module's detekt task.
+include(":detekt-rules")

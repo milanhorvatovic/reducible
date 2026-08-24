@@ -1,9 +1,12 @@
+import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import java.time.Duration
 
 plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.androidKmpLibrary) apply false
     alias(libs.plugins.composeCompiler) apply false
+    alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.kotlinJvm) apply false
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.kotlinSerialization) apply false
     alias(libs.plugins.kotlinter) apply false
@@ -22,6 +25,31 @@ apiValidation {
     klib {
         enabled = true
     }
+}
+
+// detekt carries the style decisions ktlint has no rule for: braces on every `if`
+// and multi-line `when` branch, and the repository's own rules from :detekt-rules
+// (no implicit `it`; in Compose modules, slots passed by name). Every Kotlin
+// project gets it, over all of `src`, without the default rule set; the Android
+// app adds the Compose config.
+val detektConfig = layout.projectDirectory.file("config/detekt/detekt.yml")
+val composeDetektConfig = layout.projectDirectory.file("config/detekt/compose.yml")
+subprojects {
+    fun applyDetekt(compose: Boolean) {
+        apply(plugin = "io.gitlab.arturbosch.detekt")
+        dependencies.add("detektPlugins", project(":detekt-rules"))
+        configure<DetektExtension> {
+            buildUponDefaultConfig = false
+            config.setFrom(if (compose) listOf(detektConfig, composeDetektConfig) else listOf(detektConfig))
+            source.setFrom(layout.projectDirectory.dir("src"))
+        }
+        // detekt 1.23 knows JVM targets up to 22 and would otherwise take the daemon's.
+        tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+            jvmTarget = "17"
+        }
+    }
+    pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") { applyDetekt(compose = false) }
+    pluginManager.withPlugin("com.android.application") { applyDetekt(compose = true) }
 }
 
 // The simulator test binaries are most of a build's wall time. `-PskipIosTests` keeps the JVM

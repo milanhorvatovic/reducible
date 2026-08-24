@@ -1,0 +1,24 @@
+# detekt runs without its default rule set (buildUponDefaultConfig = false), so
+# this file is the whole policy: only the decisions ktlint cannot express.
+# Braces are mandatory on every branch of an `if` and on every multi-line
+# branch of a `when`; a single-line `when` branch stays braceless, as Kotlin
+# reads it. The `reducible` rule set comes from :detekt-rules.
+style:
+  active: true
+  BracesOnIfStatements:
+    active: true
+    singleLine: always
+    multiLine: always
+  BracesOnWhenStatements:
+    active: true
+    singleLine: necessary
+    multiLine: always
+
+reducible:
+  active: true
+  NoImplicitIt:
+    active: true
+  # Activated per Compose module by config/detekt/compose.yml; its shape-based
+  # fallback would misread `Reducer { … }`-style SAM constructors elsewhere.
+  NamedComposableLambdas:
+    active: false

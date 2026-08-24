@@ -1,0 +1,75 @@
+# Developer hooks: `pre-commit install` once, then they run on the files a
+# commit touches. CI runs the same hooks over the whole tree, so a hook that
+# passes locally is the check that passes there. Kotlin sources are formatted
+# and linted by Gradle (`./gradlew formatKotlin` / `lintKotlin`); the Kotlin
+# hook here covers the Gradle scripts, which Gradle's plugin does not see.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: \.klib\.api$
+      - id: end-of-file-fixer
+        exclude: \.klib\.api$
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-yaml
+      - id: check-added-large-files
+        args: [--maxkb=512]
+
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+
+  - repo: https://github.com/ComPWA/taplo-pre-commit
+    rev: v0.9.3
+    hooks:
+      - id: taplo-format
+      - id: taplo-lint
+        # Schema validation fetches a remote catalog; the version catalog needs none.
+        args: [--no-schema]
+
+  - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+    rev: v2.16.0
+    hooks:
+      # The same ktlint kotlinter 5.7.0 embeds, so scripts and sources follow
+      # one rule set (.editorconfig, ktlint_official).
+      - id: pretty-format-kotlin
+        name: ktlint (Gradle scripts)
+        args: [--autofix, --ktlint-version=1.8.0]
+        types: [file]
+        files: \.kts$
+
+  - repo: local
+    hooks:
+      # `npx --no-install` runs the versions package-lock.json pins and fails
+      # loudly when `npm ci` has not been run, instead of formatting with
+      # whatever is on PATH.
+      - id: prettier
+        name: prettier (markdown)
+        entry: npx --no-install prettier --write
+        language: system
+        types_or: [markdown]
+      - id: markdownlint
+        name: markdownlint-cli2
+        entry: npx --no-install markdownlint-cli2
+        language: system
+        types_or: [markdown]
+      # macOS tools: `brew install swiftformat swiftlint`. CI's Linux job skips
+      # these two and the macOS job runs them.
+      - id: swiftformat
+        name: SwiftFormat
+        entry: swiftformat --config .swiftformat
+        language: system
+        types: [swift]
+      - id: swiftlint
+        name: SwiftLint
+        entry: swiftlint lint --strict --quiet
+        language: system
+        types: [swift]

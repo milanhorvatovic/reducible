@@ -1,0 +1,61 @@
+# SwiftLint is the Swift linter; SwiftFormat (.swiftformat) is the formatter.
+# The style is explicit: closures name their parameters, and `self.`, `return`,
+# and types are written out (`internal`, the default access level, stays implicit). The
+# rules below turn on the checks that demand that and turn off the ones that
+# would call the explicit form redundant. Layout is SwiftFormat's job.
+included:
+  - swift
+  - examples/cookbook/iosApp/iosApp
+disabled_rules:
+  - line_length
+  - opening_brace
+  - trailing_comma
+  - todo
+  - implicit_getter
+  - implicit_optional_initialization
+  - redundant_string_enum_value
+  - redundant_void_return
+  - unused_closure_parameter
+opt_in_rules:
+  - anonymous_argument_in_multiline_closure
+  - closure_spacing
+  - contains_over_filter_is_empty
+  - empty_count
+  - empty_string
+  - explicit_enum_raw_value
+  - fatal_error_message
+  - first_where
+  - implicitly_unwrapped_optional
+  - last_where
+  - redundant_nil_coalescing
+  - toggle_bool
+  - unowned_variable_capture
+  - weak_delegate
+identifier_name:
+  min_length: 2
+  excluded: [id, ui]
+custom_rules:
+  anonymous_closure_argument:
+    name: Anonymous closure argument
+    regex: '\$[0-9]'
+    excluded_match_kinds: [comment, doccomment, string]
+    message: "Name the closure parameter instead of using $0, $1, …"
+    severity: error
+  # A closure goes by its argument label whenever the API has one; only unlabelled
+  # parameters (`map(_:)`, `.task(_:)`, `withMutation(keyPath:_:)`, …) keep the
+  # trailing form. Regex, so it reads shape: a call or a bare name followed by `{`
+  # at the end of the line, minus declarations, control flow, and the unlabelled
+  # APIs listed in the pattern. Add an API there when it truly has no label.
+  trailing_closure_argument:
+    name: Trailing closure argument
+    regex: '^(?![ \t]*(?:(?:if|guard|else|for|while|switch|repeat|do|catch|defer|func|init|deinit|subscript|struct|class|enum|extension|protocol|actor|var|let|get|set|willSet|didSet|case|default|return|throw|import|public|private|internal|fileprivate|open|static|final|override|mutating|nonmutating|lazy|weak|unowned|convenience|required|indirect|typealias|associatedtype|where)\b|[@#}/*]))[^\n]*?(?:(?<!\w)(?!(?:task|map|compactMap|flatMap|filter|forEach|sorted|reduce|contains|allSatisfy|first|last|min|max|drop|prefix|removeAll|withMutation|withAnimation|withTransaction|withCheckedContinuation|withCheckedThrowingContinuation|withUnsafeContinuation|onChange)[ \t]*\{)[A-Za-z_]\w*[ \t]*\{(?:[ \t]*(?:\[[^\]\n]*\][ \t]*)?(?:(?:@\w+[ \t]+)*(?:[A-Za-z_]\w*(?:[ \t]*,[ \t]*[A-Za-z_]\w*)*[ \t]+|\([^)\n]*\)[ \t]+)?in[ \t]*)?|[^\n]*\}[ \t]*)$|(?<!\w)(?!(?:task|map|compactMap|flatMap|filter|forEach|sorted|reduce|contains|allSatisfy|first|last|min|max|drop|prefix|removeAll|withMutation|withAnimation|withTransaction|withCheckedContinuation|withCheckedThrowingContinuation|withUnsafeContinuation|onChange)\()[A-Za-z_]\w*\((?:[^()\n]|\([^()\n]*\))*\)[ \t]*\{(?:[ \t]*(?:\[[^\]\n]*\][ \t]*)?(?:(?:@\w+[ \t]+)*(?:[A-Za-z_]\w*(?:[ \t]*,[ \t]*[A-Za-z_]\w*)*[ \t]+|\([^)\n]*\)[ \t]+)?in[ \t]*)?|[^\n]*\}[ \t]*)$)'
+    excluded_match_kinds: [comment, doccomment]
+    message: "Pass the closure with its argument label instead of as a trailing closure."
+    severity: error
+  # Every closure parameter is named, even one the body does not read.
+  unnamed_closure_parameter:
+    name: Unnamed closure parameter
+    regex: '\{[ \t]*(?:\[[^\]\n]*\][ \t]*)?(?:@\w+[ \t]+)*(?:[A-Za-z_]\w*[ \t]*,[ \t]*)*(?<!\w)_(?!\w)(?:[ \t]*,[ \t]*[A-Za-z_]\w*)*[ \t]+in\b'
+    excluded_match_kinds: [comment, doccomment]
+    message: "Name the closure parameter instead of discarding it with `_`."
+    severity: error

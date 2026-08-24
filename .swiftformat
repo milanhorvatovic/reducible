@@ -1,0 +1,17 @@
+# SwiftFormat is the Swift formatter; SwiftLint (.swiftlint.yml) is the linter.
+# The style is explicit: `self.` on every member access, `return` written out,
+# `if let x = x`, type annotations, `-> Void`, `get {}`, `= nil`, named closure
+# parameters even when unused, and closures over key paths; only the default
+# access level `internal` stays implicit. SwiftFormat's `redundant*` rules that
+# would strip the rest are therefore off; `--self insert` adds the missing
+# `self.`. Layout follows .editorconfig (4 spaces, 120 cols).
+--swiftversion 5.9
+--indent 4
+--maxwidth 120
+--self insert
+--disable hoistPatternLet,opaqueGenericParameters
+--disable redundantReturn,redundantOptionalBinding,redundantType,redundantVoidReturnType
+--disable redundantGet,redundantNilInit,redundantLetError,redundantPattern,redundantClosure
+--disable redundantInit,redundantProperty,redundantStaticSelf,unusedArguments,preferKeyPath
+--disable strongifiedSelf,redundantExtensionACL
+--exclude examples/cookbook/iosApp/iosApp.xcodeproj

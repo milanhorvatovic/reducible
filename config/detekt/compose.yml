@@ -1,0 +1,17 @@
+# Layered over detekt.yml for modules that hold Compose UI: every lambda passed
+# to a composable, or to a builder whose lambda is composable content, goes by
+# its parameter name. The list names the lowercase builders the rule cannot
+# recognise by shape.
+reducible:
+  NamedComposableLambdas:
+    active: true
+    additionalCallees:
+      - items
+      - itemsIndexed
+      - item
+      - composable
+      - navigation
+      - viewModel
+      - remember
+      - rememberSaveable
+      - navArgument
