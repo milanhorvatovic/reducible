@@ -81,6 +81,22 @@ final class <#A: out kotlin/Any?, #B: out kotlin/Any?, #C: out kotlin/Any?> io.g
     final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible/Reduced.toString|toString(){}[0]
 }
 
+final class <#A: out kotlin/Any?, #B: out kotlin/Any?> io.github.milanhorvatovic.reducible/IdentifiedAction { // io.github.milanhorvatovic.reducible/IdentifiedAction|null[0]
+    constructor <init>(#A, #B) // io.github.milanhorvatovic.reducible/IdentifiedAction.<init>|<init>(1:0;1:1){}[0]
+
+    final val action // io.github.milanhorvatovic.reducible/IdentifiedAction.action|{}action[0]
+        final fun <get-action>(): #B // io.github.milanhorvatovic.reducible/IdentifiedAction.action.<get-action>|<get-action>(){}[0]
+    final val id // io.github.milanhorvatovic.reducible/IdentifiedAction.id|{}id[0]
+        final fun <get-id>(): #A // io.github.milanhorvatovic.reducible/IdentifiedAction.id.<get-id>|<get-id>(){}[0]
+
+    final fun component1(): #A // io.github.milanhorvatovic.reducible/IdentifiedAction.component1|component1(){}[0]
+    final fun component2(): #B // io.github.milanhorvatovic.reducible/IdentifiedAction.component2|component2(){}[0]
+    final fun copy(#A = ..., #B = ...): io.github.milanhorvatovic.reducible/IdentifiedAction<#A, #B> // io.github.milanhorvatovic.reducible/IdentifiedAction.copy|copy(1:0;1:1){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible/IdentifiedAction.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible/IdentifiedAction.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible/IdentifiedAction.toString|toString(){}[0]
+}
+
 final class <#A: out kotlin/Any?> io.github.milanhorvatovic.reducible/EffectEnvelope { // io.github.milanhorvatovic.reducible/EffectEnvelope|null[0]
     constructor <init>(#A, io.github.milanhorvatovic.reducible/EffectScope = ..., io.github.milanhorvatovic.reducible/EffectKey? = ..., io.github.milanhorvatovic.reducible/EffectOwner<*>? = ...) // io.github.milanhorvatovic.reducible/EffectEnvelope.<init>|<init>(1:0;io.github.milanhorvatovic.reducible.EffectScope;io.github.milanhorvatovic.reducible.EffectKey?;io.github.milanhorvatovic.reducible.EffectOwner<*>?){}[0]
 
@@ -103,9 +119,31 @@ final class <#A: out kotlin/Any?> io.github.milanhorvatovic.reducible/EffectEnve
     final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible/EffectEnvelope.toString|toString(){}[0]
 }
 
+final class io.github.milanhorvatovic.reducible/IdentifiedEffectKey : io.github.milanhorvatovic.reducible/EffectKey { // io.github.milanhorvatovic.reducible/IdentifiedEffectKey|null[0]
+    constructor <init>(kotlin/Any?, io.github.milanhorvatovic.reducible/EffectKey) // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.<init>|<init>(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey){}[0]
+
+    final val id // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.id|{}id[0]
+        final fun <get-id>(): kotlin/Any? // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.id.<get-id>|<get-id>(){}[0]
+    final val key // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.key|{}key[0]
+        final fun <get-key>(): io.github.milanhorvatovic.reducible/EffectKey // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.key.<get-key>|<get-key>(){}[0]
+    final val policy // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.policy|{}policy[0]
+        final fun <get-policy>(): io.github.milanhorvatovic.reducible/KeyPolicy // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.policy.<get-policy>|<get-policy>(){}[0]
+
+    final fun component1(): kotlin/Any? // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.component1|component1(){}[0]
+    final fun component2(): io.github.milanhorvatovic.reducible/EffectKey // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.component2|component2(){}[0]
+    final fun copy(kotlin/Any? = ..., io.github.milanhorvatovic.reducible/EffectKey = ...): io.github.milanhorvatovic.reducible/IdentifiedEffectKey // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.copy|copy(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible/IdentifiedEffectKey.toString|toString(){}[0]
+}
+
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?, #D: kotlin/Any?, #E: kotlin/Any?, #F: kotlin/Any?, #G: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reducer<#D, #E, #F>).io.github.milanhorvatovic.reducible/forEachIdentified(io.github.milanhorvatovic.reducible/Optional<#A, kotlin.collections/List<#D>>, kotlin/Function1<#D, #G>, io.github.milanhorvatovic.reducible/Prism<#B, io.github.milanhorvatovic.reducible/IdentifiedAction<#G, #E>>, kotlin/Function2<#G, #F, #C>): io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C> // io.github.milanhorvatovic.reducible/forEachIdentified|forEachIdentified@io.github.milanhorvatovic.reducible.Reducer<0:3,0:4,0:5>(io.github.milanhorvatovic.reducible.Optional<0:0,kotlin.collections.List<0:3>>;kotlin.Function1<0:3,0:6>;io.github.milanhorvatovic.reducible.Prism<0:1,io.github.milanhorvatovic.reducible.IdentifiedAction<0:6,0:4>>;kotlin.Function2<0:6,0:5,0:2>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>;3§<kotlin.Any?>;4§<kotlin.Any?>;5§<kotlin.Any?>;6§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?, #D: kotlin/Any?, #E: kotlin/Any?, #F: kotlin/Any?, #G: kotlin/Any?> io.github.milanhorvatovic.reducible/rowReduced(#A, io.github.milanhorvatovic.reducible/Reduced<#D, #E, #F>, #G, kotlin/Function1<#A, kotlin.collections/List<#D>?>, kotlin/Function1<#D, #G>, io.github.milanhorvatovic.reducible/Prism<#B, io.github.milanhorvatovic.reducible/IdentifiedAction<#G, #E>>, kotlin/Function2<#G, #F, #C>): io.github.milanhorvatovic.reducible/Reduced<#A, #B, #C> // io.github.milanhorvatovic.reducible/rowReduced|rowReduced(0:0;io.github.milanhorvatovic.reducible.Reduced<0:3,0:4,0:5>;0:6;kotlin.Function1<0:0,kotlin.collections.List<0:3>?>;kotlin.Function1<0:3,0:6>;io.github.milanhorvatovic.reducible.Prism<0:1,io.github.milanhorvatovic.reducible.IdentifiedAction<0:6,0:4>>;kotlin.Function2<0:6,0:5,0:2>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>;3§<kotlin.Any?>;4§<kotlin.Any?>;5§<kotlin.Any?>;6§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?, #D: kotlin/Any?, #E: kotlin/Any?, #F: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reducer<#D, #E, #F>).io.github.milanhorvatovic.reducible/ifPresent(io.github.milanhorvatovic.reducible/Optional<#A, #D>, io.github.milanhorvatovic.reducible/Prism<#B, #E>, kotlin/Function1<#F, #C>, kotlin/Any = ...): io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C> // io.github.milanhorvatovic.reducible/ifPresent|ifPresent@io.github.milanhorvatovic.reducible.Reducer<0:3,0:4,0:5>(io.github.milanhorvatovic.reducible.Optional<0:0,0:3>;io.github.milanhorvatovic.reducible.Prism<0:1,0:4>;kotlin.Function1<0:5,0:2>;kotlin.Any){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>;3§<kotlin.Any?>;4§<kotlin.Any?>;5§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> (io.github.milanhorvatovic.reducible/Optional<#A, #B>).io.github.milanhorvatovic.reducible/andThen(io.github.milanhorvatovic.reducible/Optional<#B, #C>): io.github.milanhorvatovic.reducible/Optional<#A, #C> // io.github.milanhorvatovic.reducible/andThen|andThen@io.github.milanhorvatovic.reducible.Optional<0:0,0:1>(io.github.milanhorvatovic.reducible.Optional<0:1,0:2>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reduced<#A, #B, #C>).io.github.milanhorvatovic.reducible/andSend(kotlin/Array<out #B>...): io.github.milanhorvatovic.reducible/Reduced<#A, #B, #C> // io.github.milanhorvatovic.reducible/andSend|andSend@io.github.milanhorvatovic.reducible.Reduced<0:0,0:1,0:2>(kotlin.Array<out|0:1>...){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>).io.github.milanhorvatovic.reducible/replay(#A, kotlin.collections/Iterable<#B>): #A // io.github.milanhorvatovic.reducible/replay|replay@io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>(0:0;kotlin.collections.Iterable<0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible/combine(kotlin/Array<out io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>>...): io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C> // io.github.milanhorvatovic.reducible/combine|combine(kotlin.Array<out|io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>>...){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> (#A).io.github.milanhorvatovic.reducible/andSend(kotlin/Array<out #B>...): io.github.milanhorvatovic.reducible/Reduced<#A, #B, kotlin/Nothing> // io.github.milanhorvatovic.reducible/andSend|andSend@0:0(kotlin.Array<out|0:1>...){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> (#A).io.github.milanhorvatovic.reducible/only(): io.github.milanhorvatovic.reducible/Reduced<#A, kotlin/Nothing, #B> // io.github.milanhorvatovic.reducible/only|only@0:0(){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> (#A).io.github.milanhorvatovic.reducible/withEffect(#B, io.github.milanhorvatovic.reducible/EffectScope = ..., io.github.milanhorvatovic.reducible/EffectKey? = ...): io.github.milanhorvatovic.reducible/Reduced<#A, kotlin/Nothing, #B> // io.github.milanhorvatovic.reducible/withEffect|withEffect@0:0(0:1;io.github.milanhorvatovic.reducible.EffectScope;io.github.milanhorvatovic.reducible.EffectKey?){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
@@ -114,3 +152,4 @@ final fun <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible/optional(kotlin/Function1<#A, #B?>, kotlin/Function2<#A, #B, #A>): io.github.milanhorvatovic.reducible/Optional<#A, #B> // io.github.milanhorvatovic.reducible/optional|optional(kotlin.Function1<0:0,0:1?>;kotlin.Function2<0:0,0:1,0:0>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible/prism(kotlin/Function1<#A, #B?>, kotlin/Function1<#B, #A>): io.github.milanhorvatovic.reducible/Prism<#A, #B> // io.github.milanhorvatovic.reducible/prism|prism(kotlin.Function1<0:0,0:1?>;kotlin.Function1<0:1,0:0>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
 final inline fun <#A: kotlin/Any?, #B: reified #A> io.github.milanhorvatovic.reducible/casePrism(): io.github.milanhorvatovic.reducible/Prism<#A, #B> // io.github.milanhorvatovic.reducible/casePrism|casePrism(){0§<kotlin.Any?>;1§<0:0>}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> (io.github.milanhorvatovic.reducible/EffectHandler<#A, #B>).io.github.milanhorvatovic.reducible/handle(#A, kotlin/Function1<#C, kotlin/Unit>, kotlin/Function1<#B, #C>) // io.github.milanhorvatovic.reducible/handle|handle@io.github.milanhorvatovic.reducible.EffectHandler<0:0,0:1>(0:0;kotlin.Function1<0:2,kotlin.Unit>;kotlin.Function1<0:1,0:2>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
