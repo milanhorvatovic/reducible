@@ -36,6 +36,7 @@ rootProject.name = "reducible"
 
 // The library: every `reducible-*` project is published.
 include(":reducible-core")
+include(":reducible-runtime")
 
 // The repository's own detekt rules, loaded into every module's detekt task.
 include(":detekt-rules")

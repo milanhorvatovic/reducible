@@ -1,0 +1,283 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.milanhorvatovic:reducible-runtime>
+final enum class io.github.milanhorvatovic.reducible.runtime/EffectEnd : kotlin/Enum<io.github.milanhorvatovic.reducible.runtime/EffectEnd> { // io.github.milanhorvatovic.reducible.runtime/EffectEnd|null[0]
+    enum entry CancelledByKey // io.github.milanhorvatovic.reducible.runtime/EffectEnd.CancelledByKey|null[0]
+    enum entry CancelledByOwner // io.github.milanhorvatovic.reducible.runtime/EffectEnd.CancelledByOwner|null[0]
+    enum entry Completed // io.github.milanhorvatovic.reducible.runtime/EffectEnd.Completed|null[0]
+    enum entry Defect // io.github.milanhorvatovic.reducible.runtime/EffectEnd.Defect|null[0]
+
+    final val entries // io.github.milanhorvatovic.reducible.runtime/EffectEnd.entries|#static{}entries[0]
+        final fun <get-entries>(): kotlin.enums/EnumEntries<io.github.milanhorvatovic.reducible.runtime/EffectEnd> // io.github.milanhorvatovic.reducible.runtime/EffectEnd.entries.<get-entries>|<get-entries>#static(){}[0]
+
+    final fun valueOf(kotlin/String): io.github.milanhorvatovic.reducible.runtime/EffectEnd // io.github.milanhorvatovic.reducible.runtime/EffectEnd.valueOf|valueOf#static(kotlin.String){}[0]
+    final fun values(): kotlin/Array<io.github.milanhorvatovic.reducible.runtime/EffectEnd> // io.github.milanhorvatovic.reducible.runtime/EffectEnd.values|values#static(){}[0]
+}
+
+abstract fun interface <#A: in kotlin/Any?, #B: in kotlin/Any?, #C: in kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/DefectHandler { // io.github.milanhorvatovic.reducible.runtime/DefectHandler|null[0]
+    abstract fun onDefect(io.github.milanhorvatovic.reducible.runtime/Defect<#A, #B, #C>) // io.github.milanhorvatovic.reducible.runtime/DefectHandler.onDefect|onDefect(io.github.milanhorvatovic.reducible.runtime.Defect<1:0,1:1,1:2>){}[0]
+}
+
+abstract fun interface <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/StoreObserver { // io.github.milanhorvatovic.reducible.runtime/StoreObserver|null[0]
+    abstract fun onReduced(#A, #B, #A) // io.github.milanhorvatovic.reducible.runtime/StoreObserver.onReduced|onReduced(1:0;1:1;1:0){}[0]
+    open fun onEffect(io.github.milanhorvatovic.reducible.runtime/EffectEvent) // io.github.milanhorvatovic.reducible.runtime/StoreObserver.onEffect|onEffect(io.github.milanhorvatovic.reducible.runtime.EffectEvent){}[0]
+    open fun onWarning(io.github.milanhorvatovic.reducible.runtime/StoreWarning<#B>) // io.github.milanhorvatovic.reducible.runtime/StoreObserver.onWarning|onWarning(io.github.milanhorvatovic.reducible.runtime.StoreWarning<1:1>){}[0]
+}
+
+abstract fun interface io.github.milanhorvatovic.reducible.runtime/Subscription { // io.github.milanhorvatovic.reducible.runtime/Subscription|null[0]
+    abstract fun cancel() // io.github.milanhorvatovic.reducible.runtime/Subscription.cancel|cancel(){}[0]
+}
+
+sealed interface <#A: out kotlin/Any?, #B: out kotlin/Any?, #C: out kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Defect { // io.github.milanhorvatovic.reducible.runtime/Defect|null[0]
+    abstract val error // io.github.milanhorvatovic.reducible.runtime/Defect.error|{}error[0]
+        abstract fun <get-error>(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.error.<get-error>|<get-error>(){}[0]
+
+    final class <#A1: out kotlin/Any?, #B1: out kotlin/Any?> FollowUpCycle : io.github.milanhorvatovic.reducible.runtime/Defect<#A1, #B1, kotlin/Nothing> { // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle|null[0]
+        constructor <init>(#A1, #B1) // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.<init>|<init>(1:0;1:1){}[0]
+
+        final val action // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.action|{}action[0]
+            final fun <get-action>(): #B1 // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.action.<get-action>|<get-action>(){}[0]
+        final val error // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.error|{}error[0]
+            final fun <get-error>(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.error.<get-error>|<get-error>(){}[0]
+        final val state // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.state|{}state[0]
+            final fun <get-state>(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.state.<get-state>|<get-state>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.component1|component1(){}[0]
+        final fun component2(): #B1 // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.component2|component2(){}[0]
+        final fun copy(#A1 = ..., #B1 = ...): io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle<#A1, #B1> // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.copy|copy(1:0;1:1){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/Defect.FollowUpCycle.toString|toString(){}[0]
+    }
+
+    final class <#A1: out kotlin/Any?, #B1: out kotlin/Any?> InReducer : io.github.milanhorvatovic.reducible.runtime/Defect<#A1, #B1, kotlin/Nothing> { // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer|null[0]
+        constructor <init>(#A1, #B1, kotlin/Throwable) // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.<init>|<init>(1:0;1:1;kotlin.Throwable){}[0]
+
+        final val action // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.action|{}action[0]
+            final fun <get-action>(): #B1 // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.action.<get-action>|<get-action>(){}[0]
+        final val error // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.error|{}error[0]
+            final fun <get-error>(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.error.<get-error>|<get-error>(){}[0]
+        final val state // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.state|{}state[0]
+            final fun <get-state>(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.state.<get-state>|<get-state>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.component1|component1(){}[0]
+        final fun component2(): #B1 // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.component2|component2(){}[0]
+        final fun component3(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.component3|component3(){}[0]
+        final fun copy(#A1 = ..., #B1 = ..., kotlin/Throwable = ...): io.github.milanhorvatovic.reducible.runtime/Defect.InReducer<#A1, #B1> // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.copy|copy(1:0;1:1;kotlin.Throwable){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/Defect.InReducer.toString|toString(){}[0]
+    }
+
+    final class <#A1: out kotlin/Any?> InEffect : io.github.milanhorvatovic.reducible.runtime/Defect<kotlin/Nothing, kotlin/Nothing, #A1> { // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect|null[0]
+        constructor <init>(#A1, kotlin/Throwable) // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.<init>|<init>(1:0;kotlin.Throwable){}[0]
+
+        final val effect // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.effect|{}effect[0]
+            final fun <get-effect>(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.effect.<get-effect>|<get-effect>(){}[0]
+        final val error // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.error|{}error[0]
+            final fun <get-error>(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.error.<get-error>|<get-error>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.component1|component1(){}[0]
+        final fun component2(): kotlin/Throwable // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.component2|component2(){}[0]
+        final fun copy(#A1 = ..., kotlin/Throwable = ...): io.github.milanhorvatovic.reducible.runtime/Defect.InEffect<#A1> // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.copy|copy(1:0;kotlin.Throwable){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/Defect.InEffect.toString|toString(){}[0]
+    }
+}
+
+sealed interface <#A: out kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/StoreWarning { // io.github.milanhorvatovic.reducible.runtime/StoreWarning|null[0]
+    final class <#A1: out kotlin/Any?> EventDropped : io.github.milanhorvatovic.reducible.runtime/StoreWarning<#A1> { // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped|null[0]
+        constructor <init>(#A1) // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.<init>|<init>(1:0){}[0]
+
+        final val event // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.event|{}event[0]
+            final fun <get-event>(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.event.<get-event>|<get-event>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.component1|component1(){}[0]
+        final fun copy(#A1 = ...): io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped<#A1> // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreWarning.EventDropped.toString|toString(){}[0]
+    }
+
+    final class <#A1: out kotlin/Any?> SentAfterClose : io.github.milanhorvatovic.reducible.runtime/StoreWarning<#A1> { // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose|null[0]
+        constructor <init>(#A1) // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.<init>|<init>(1:0){}[0]
+
+        final val action // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.action|{}action[0]
+            final fun <get-action>(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.action.<get-action>|<get-action>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.component1|component1(){}[0]
+        final fun copy(#A1 = ...): io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose<#A1> // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.copy|copy(1:0){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentAfterClose.toString|toString(){}[0]
+    }
+
+    final class <#A1: out kotlin/Any?> SentFromFinishedEffect : io.github.milanhorvatovic.reducible.runtime/StoreWarning<#A1> { // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect|null[0]
+        constructor <init>(#A1, kotlin/Any?) // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.<init>|<init>(1:0;kotlin.Any?){}[0]
+
+        final val action // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.action|{}action[0]
+            final fun <get-action>(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.action.<get-action>|<get-action>(){}[0]
+        final val effect // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.effect|{}effect[0]
+            final fun <get-effect>(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.effect.<get-effect>|<get-effect>(){}[0]
+
+        final fun component1(): #A1 // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.component1|component1(){}[0]
+        final fun component2(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.component2|component2(){}[0]
+        final fun copy(#A1 = ..., kotlin/Any? = ...): io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect<#A1> // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.copy|copy(1:0;kotlin.Any?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreWarning.SentFromFinishedEffect.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.milanhorvatovic.reducible.runtime/EffectEvent { // io.github.milanhorvatovic.reducible.runtime/EffectEvent|null[0]
+    abstract val effect // io.github.milanhorvatovic.reducible.runtime/EffectEvent.effect|{}effect[0]
+        abstract fun <get-effect>(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.effect.<get-effect>|<get-effect>(){}[0]
+    abstract val key // io.github.milanhorvatovic.reducible.runtime/EffectEvent.key|{}key[0]
+        abstract fun <get-key>(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.key.<get-key>|<get-key>(){}[0]
+
+    final class Ended : io.github.milanhorvatovic.reducible.runtime/EffectEvent { // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended|null[0]
+        constructor <init>(kotlin/Any?, io.github.milanhorvatovic.reducible/EffectKey?, io.github.milanhorvatovic.reducible.runtime/EffectEnd) // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.<init>|<init>(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey?;io.github.milanhorvatovic.reducible.runtime.EffectEnd){}[0]
+
+        final val effect // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.effect|{}effect[0]
+            final fun <get-effect>(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.effect.<get-effect>|<get-effect>(){}[0]
+        final val end // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.end|{}end[0]
+            final fun <get-end>(): io.github.milanhorvatovic.reducible.runtime/EffectEnd // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.end.<get-end>|<get-end>(){}[0]
+        final val key // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.key|{}key[0]
+            final fun <get-key>(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.key.<get-key>|<get-key>(){}[0]
+
+        final fun component1(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.component1|component1(){}[0]
+        final fun component2(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.component2|component2(){}[0]
+        final fun component3(): io.github.milanhorvatovic.reducible.runtime/EffectEnd // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.component3|component3(){}[0]
+        final fun copy(kotlin/Any? = ..., io.github.milanhorvatovic.reducible/EffectKey? = ..., io.github.milanhorvatovic.reducible.runtime/EffectEnd = ...): io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.copy|copy(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey?;io.github.milanhorvatovic.reducible.runtime.EffectEnd){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Ended.toString|toString(){}[0]
+    }
+
+    final class Launched : io.github.milanhorvatovic.reducible.runtime/EffectEvent { // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched|null[0]
+        constructor <init>(kotlin/Any?, io.github.milanhorvatovic.reducible/EffectScope, io.github.milanhorvatovic.reducible/EffectKey?, kotlin/Boolean) // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.<init>|<init>(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectScope;io.github.milanhorvatovic.reducible.EffectKey?;kotlin.Boolean){}[0]
+
+        final val effect // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.effect|{}effect[0]
+            final fun <get-effect>(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.effect.<get-effect>|<get-effect>(){}[0]
+        final val key // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.key|{}key[0]
+            final fun <get-key>(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.key.<get-key>|<get-key>(){}[0]
+        final val queued // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.queued|{}queued[0]
+            final fun <get-queued>(): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.queued.<get-queued>|<get-queued>(){}[0]
+        final val scope // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.scope|{}scope[0]
+            final fun <get-scope>(): io.github.milanhorvatovic.reducible/EffectScope // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.scope.<get-scope>|<get-scope>(){}[0]
+
+        final fun component1(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.component1|component1(){}[0]
+        final fun component2(): io.github.milanhorvatovic.reducible/EffectScope // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.component2|component2(){}[0]
+        final fun component3(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.component4|component4(){}[0]
+        final fun copy(kotlin/Any? = ..., io.github.milanhorvatovic.reducible/EffectScope = ..., io.github.milanhorvatovic.reducible/EffectKey? = ..., kotlin/Boolean = ...): io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.copy|copy(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectScope;io.github.milanhorvatovic.reducible.EffectKey?;kotlin.Boolean){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Launched.toString|toString(){}[0]
+    }
+
+    final class Skipped : io.github.milanhorvatovic.reducible.runtime/EffectEvent { // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped|null[0]
+        constructor <init>(kotlin/Any?, io.github.milanhorvatovic.reducible/EffectKey?) // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.<init>|<init>(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey?){}[0]
+
+        final val effect // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.effect|{}effect[0]
+            final fun <get-effect>(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.effect.<get-effect>|<get-effect>(){}[0]
+        final val key // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.key|{}key[0]
+            final fun <get-key>(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.key.<get-key>|<get-key>(){}[0]
+
+        final fun component1(): kotlin/Any? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.component1|component1(){}[0]
+        final fun component2(): io.github.milanhorvatovic.reducible/EffectKey? // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.component2|component2(){}[0]
+        final fun copy(kotlin/Any? = ..., io.github.milanhorvatovic.reducible/EffectKey? = ...): io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.copy|copy(kotlin.Any?;io.github.milanhorvatovic.reducible.EffectKey?){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/EffectEvent.Skipped.toString|toString(){}[0]
+    }
+}
+
+sealed interface io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope|null[0]
+    final class Dedicated : io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated|null[0]
+        constructor <init>(kotlinx.coroutines/CoroutineDispatcher) // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.<init>|<init>(kotlinx.coroutines.CoroutineDispatcher){}[0]
+
+        final val dispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.dispatcher|{}dispatcher[0]
+            final fun <get-dispatcher>(): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.dispatcher.<get-dispatcher>|<get-dispatcher>(){}[0]
+
+        final fun component1(): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines/CoroutineDispatcher = ...): io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.copy|copy(kotlinx.coroutines.CoroutineDispatcher){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated.toString|toString(){}[0]
+    }
+
+    final class Inherited : io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited|null[0]
+        constructor <init>(kotlinx.coroutines/CoroutineScope) // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.<init>|<init>(kotlinx.coroutines.CoroutineScope){}[0]
+
+        final val scope // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.scope|{}scope[0]
+            final fun <get-scope>(): kotlinx.coroutines/CoroutineScope // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.scope.<get-scope>|<get-scope>(){}[0]
+
+        final fun component1(): kotlinx.coroutines/CoroutineScope // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines/CoroutineScope = ...): io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.copy|copy(kotlinx.coroutines.CoroutineScope){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreScope.Inherited.toString|toString(){}[0]
+    }
+
+    final class Testing : io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing|null[0]
+        constructor <init>(kotlinx.coroutines/CoroutineDispatcher) // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.<init>|<init>(kotlinx.coroutines.CoroutineDispatcher){}[0]
+
+        final val dispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.dispatcher|{}dispatcher[0]
+            final fun <get-dispatcher>(): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.dispatcher.<get-dispatcher>|<get-dispatcher>(){}[0]
+
+        final fun component1(): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines/CoroutineDispatcher = ...): io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.copy|copy(kotlinx.coroutines.CoroutineDispatcher){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreScope.Testing.toString|toString(){}[0]
+    }
+
+    final object Background : io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope.Background|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreScope.Background.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreScope.Background.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreScope.Background.toString|toString(){}[0]
+    }
+
+    final object Main : io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.github.milanhorvatovic.reducible.runtime/StoreScope.Main|null[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/StoreScope.Main.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/StoreScope.Main.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/StoreScope.Main.toString|toString(){}[0]
+    }
+}
+
+final class <#A: kotlin/Any, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Store { // io.github.milanhorvatovic.reducible.runtime/Store|null[0]
+    final val activeEffects // io.github.milanhorvatovic.reducible.runtime/Store.activeEffects|{}activeEffects[0]
+        final fun <get-activeEffects>(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Store.activeEffects.<get-activeEffects>|<get-activeEffects>(){}[0]
+    final val events // io.github.milanhorvatovic.reducible.runtime/Store.events|{}events[0]
+        final fun <get-events>(): kotlinx.coroutines.flow/Flow<#B> // io.github.milanhorvatovic.reducible.runtime/Store.events.<get-events>|<get-events>(){}[0]
+    final val state // io.github.milanhorvatovic.reducible.runtime/Store.state|{}state[0]
+        final fun <get-state>(): #A // io.github.milanhorvatovic.reducible.runtime/Store.state.<get-state>|<get-state>(){}[0]
+    final val stateFlow // io.github.milanhorvatovic.reducible.runtime/Store.stateFlow|{}stateFlow[0]
+        final fun <get-stateFlow>(): kotlinx.coroutines.flow/StateFlow<#A> // io.github.milanhorvatovic.reducible.runtime/Store.stateFlow.<get-stateFlow>|<get-stateFlow>(){}[0]
+
+    final fun close() // io.github.milanhorvatovic.reducible.runtime/Store.close|close(){}[0]
+    final fun observe(kotlin/Function1<#A, kotlin/Unit>): io.github.milanhorvatovic.reducible.runtime/Subscription // io.github.milanhorvatovic.reducible.runtime/Store.observe|observe(kotlin.Function1<1:0,kotlin.Unit>){}[0]
+    final fun send(#B) // io.github.milanhorvatovic.reducible.runtime/Store.send|send(1:1){}[0]
+}
+
+final class io.github.milanhorvatovic.reducible.runtime/DefectException : kotlin/RuntimeException { // io.github.milanhorvatovic.reducible.runtime/DefectException|null[0]
+    constructor <init>(io.github.milanhorvatovic.reducible.runtime/Defect<*, *, *>) // io.github.milanhorvatovic.reducible.runtime/DefectException.<init>|<init>(io.github.milanhorvatovic.reducible.runtime.Defect<*,*,*>){}[0]
+
+    final val defect // io.github.milanhorvatovic.reducible.runtime/DefectException.defect|{}defect[0]
+        final fun <get-defect>(): io.github.milanhorvatovic.reducible.runtime/Defect<*, *, *> // io.github.milanhorvatovic.reducible.runtime/DefectException.defect.<get-defect>|<get-defect>(){}[0]
+}
+
+final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any> (io.github.milanhorvatovic.reducible.runtime/Store<#A, #B>).io.github.milanhorvatovic.reducible.runtime/events(kotlin/Function1<#B, #C?>): kotlinx.coroutines.flow/Flow<#C> // io.github.milanhorvatovic.reducible.runtime/events|events@io.github.milanhorvatovic.reducible.runtime.Store<0:0,0:1>(kotlin.Function1<0:1,0:2?>){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Store(#A, io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>, io.github.milanhorvatovic.reducible/EffectHandler<#C, #B>, io.github.milanhorvatovic.reducible.runtime/DefectHandler<#A, #B, #C> = ..., io.github.milanhorvatovic.reducible.runtime/StoreScope = ..., io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>? = ..., #B? = ...): io.github.milanhorvatovic.reducible.runtime/Store<#A, #B> // io.github.milanhorvatovic.reducible.runtime/Store|Store(0:0;io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.EffectHandler<0:2,0:1>;io.github.milanhorvatovic.reducible.runtime.DefectHandler<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.runtime.StoreScope;io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>?;0:1?){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>).io.github.milanhorvatovic.reducible.runtime/plus(io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>): io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B> // io.github.milanhorvatovic.reducible.runtime/plus|plus@io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>(io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final fun io.github.milanhorvatovic.reducible.runtime/dedicated(platform.darwin/NSObject?): io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated // io.github.milanhorvatovic.reducible.runtime/dedicated|dedicated(platform.darwin.NSObject?){}[0]
+final fun io.github.milanhorvatovic.reducible.runtime/dispatchQueueDispatcher(platform.darwin/NSObject?): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/dispatchQueueDispatcher|dispatchQueueDispatcher(platform.darwin.NSObject?){}[0]
+final fun io.github.milanhorvatovic.reducible.runtime/loggingDefectHandler(kotlin/Function1<io.github.milanhorvatovic.reducible.runtime/DefectException, kotlin/Unit>): io.github.milanhorvatovic.reducible.runtime/DefectHandler<kotlin/Any?, kotlin/Any?, kotlin/Any?> // io.github.milanhorvatovic.reducible.runtime/loggingDefectHandler|loggingDefectHandler(kotlin.Function1<io.github.milanhorvatovic.reducible.runtime.DefectException,kotlin.Unit>){}[0]
+final fun io.github.milanhorvatovic.reducible.runtime/rethrowingDefectHandler(): io.github.milanhorvatovic.reducible.runtime/DefectHandler<kotlin/Any?, kotlin/Any?, kotlin/Any?> // io.github.milanhorvatovic.reducible.runtime/rethrowingDefectHandler|rethrowingDefectHandler(){}[0]
