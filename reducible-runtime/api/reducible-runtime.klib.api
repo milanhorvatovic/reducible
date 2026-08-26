@@ -252,6 +252,24 @@ sealed interface io.github.milanhorvatovic.reducible.runtime/StoreScope { // io.
     }
 }
 
+final class <#A: kotlin/Any, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/RecordingStore { // io.github.milanhorvatovic.reducible.runtime/RecordingStore|null[0]
+    final val events // io.github.milanhorvatovic.reducible.runtime/RecordingStore.events|{}events[0]
+        final fun <get-events>(): kotlinx.coroutines.flow/Flow<#B> // io.github.milanhorvatovic.reducible.runtime/RecordingStore.events.<get-events>|<get-events>(){}[0]
+    final val initialState // io.github.milanhorvatovic.reducible.runtime/RecordingStore.initialState|{}initialState[0]
+        final fun <get-initialState>(): #A // io.github.milanhorvatovic.reducible.runtime/RecordingStore.initialState.<get-initialState>|<get-initialState>(){}[0]
+    final val recording // io.github.milanhorvatovic.reducible.runtime/RecordingStore.recording|{}recording[0]
+        final fun <get-recording>(): io.github.milanhorvatovic.reducible.runtime/Recording<#A, #B> // io.github.milanhorvatovic.reducible.runtime/RecordingStore.recording.<get-recording>|<get-recording>(){}[0]
+    final val state // io.github.milanhorvatovic.reducible.runtime/RecordingStore.state|{}state[0]
+        final fun <get-state>(): #A // io.github.milanhorvatovic.reducible.runtime/RecordingStore.state.<get-state>|<get-state>(){}[0]
+    final val stateFlow // io.github.milanhorvatovic.reducible.runtime/RecordingStore.stateFlow|{}stateFlow[0]
+        final fun <get-stateFlow>(): kotlinx.coroutines.flow/StateFlow<#A> // io.github.milanhorvatovic.reducible.runtime/RecordingStore.stateFlow.<get-stateFlow>|<get-stateFlow>(){}[0]
+
+    final fun clearRecording() // io.github.milanhorvatovic.reducible.runtime/RecordingStore.clearRecording|clearRecording(){}[0]
+    final fun close() // io.github.milanhorvatovic.reducible.runtime/RecordingStore.close|close(){}[0]
+    final fun observe(kotlin/Function1<#A, kotlin/Unit>): io.github.milanhorvatovic.reducible.runtime/Subscription // io.github.milanhorvatovic.reducible.runtime/RecordingStore.observe|observe(kotlin.Function1<1:0,kotlin.Unit>){}[0]
+    final fun send(#B) // io.github.milanhorvatovic.reducible.runtime/RecordingStore.send|send(1:1){}[0]
+}
+
 final class <#A: kotlin/Any, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Store { // io.github.milanhorvatovic.reducible.runtime/Store|null[0]
     final val activeEffects // io.github.milanhorvatovic.reducible.runtime/Store.activeEffects|{}activeEffects[0]
         final fun <get-activeEffects>(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Store.activeEffects.<get-activeEffects>|<get-activeEffects>(){}[0]
@@ -277,6 +295,32 @@ final class <#A: kotlin/Any, #B: kotlin/Any?> io.github.milanhorvatovic.reducibl
     final fun send(#B) // io.github.milanhorvatovic.reducible.runtime/ViewStore.send|send(1:1){}[0]
 }
 
+final class <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/ActionRecorder : io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B> { // io.github.milanhorvatovic.reducible.runtime/ActionRecorder|null[0]
+    constructor <init>(kotlin/Int = ...) // io.github.milanhorvatovic.reducible.runtime/ActionRecorder.<init>|<init>(kotlin.Int){}[0]
+
+    final val recording // io.github.milanhorvatovic.reducible.runtime/ActionRecorder.recording|{}recording[0]
+        final fun <get-recording>(): io.github.milanhorvatovic.reducible.runtime/Recording<#A, #B>? // io.github.milanhorvatovic.reducible.runtime/ActionRecorder.recording.<get-recording>|<get-recording>(){}[0]
+
+    final fun clear() // io.github.milanhorvatovic.reducible.runtime/ActionRecorder.clear|clear(){}[0]
+    final fun onReduced(#A, #B, #A) // io.github.milanhorvatovic.reducible.runtime/ActionRecorder.onReduced|onReduced(1:0;1:1;1:0){}[0]
+}
+
+final class <#A: kotlin/Any?, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Recording { // io.github.milanhorvatovic.reducible.runtime/Recording|null[0]
+    constructor <init>(#A, kotlin.collections/List<#B>) // io.github.milanhorvatovic.reducible.runtime/Recording.<init>|<init>(1:0;kotlin.collections.List<1:1>){}[0]
+
+    final val actions // io.github.milanhorvatovic.reducible.runtime/Recording.actions|{}actions[0]
+        final fun <get-actions>(): kotlin.collections/List<#B> // io.github.milanhorvatovic.reducible.runtime/Recording.actions.<get-actions>|<get-actions>(){}[0]
+    final val initialState // io.github.milanhorvatovic.reducible.runtime/Recording.initialState|{}initialState[0]
+        final fun <get-initialState>(): #A // io.github.milanhorvatovic.reducible.runtime/Recording.initialState.<get-initialState>|<get-initialState>(){}[0]
+
+    final fun component1(): #A // io.github.milanhorvatovic.reducible.runtime/Recording.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<#B> // io.github.milanhorvatovic.reducible.runtime/Recording.component2|component2(){}[0]
+    final fun copy(#A = ..., kotlin.collections/List<#B> = ...): io.github.milanhorvatovic.reducible.runtime/Recording<#A, #B> // io.github.milanhorvatovic.reducible.runtime/Recording.copy|copy(1:0;kotlin.collections.List<1:1>){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // io.github.milanhorvatovic.reducible.runtime/Recording.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // io.github.milanhorvatovic.reducible.runtime/Recording.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // io.github.milanhorvatovic.reducible.runtime/Recording.toString|toString(){}[0]
+}
+
 final class io.github.milanhorvatovic.reducible.runtime/DefectException : kotlin/RuntimeException { // io.github.milanhorvatovic.reducible.runtime/DefectException|null[0]
     constructor <init>(io.github.milanhorvatovic.reducible.runtime/Defect<*, *, *>) // io.github.milanhorvatovic.reducible.runtime/DefectException.<init>|<init>(io.github.milanhorvatovic.reducible.runtime.Defect<*,*,*>){}[0]
 
@@ -287,9 +331,11 @@ final class io.github.milanhorvatovic.reducible.runtime/DefectException : kotlin
 final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any, #D: kotlin/Any?> (io.github.milanhorvatovic.reducible.runtime/Store<#A, #B>).io.github.milanhorvatovic.reducible.runtime/view(kotlin/Function1<#A, #C>, kotlin/Function1<#D, #B>): io.github.milanhorvatovic.reducible.runtime/ViewStore<#C, #D> // io.github.milanhorvatovic.reducible.runtime/view|view@io.github.milanhorvatovic.reducible.runtime.Store<0:0,0:1>(kotlin.Function1<0:0,0:2>;kotlin.Function1<0:3,0:1>){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any>;3§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any, #D: kotlin/Any?> (io.github.milanhorvatovic.reducible.runtime/ViewStore<#A, #B>).io.github.milanhorvatovic.reducible.runtime/view(kotlin/Function1<#A, #C>, kotlin/Function1<#D, #B>): io.github.milanhorvatovic.reducible.runtime/ViewStore<#C, #D> // io.github.milanhorvatovic.reducible.runtime/view|view@io.github.milanhorvatovic.reducible.runtime.ViewStore<0:0,0:1>(kotlin.Function1<0:0,0:2>;kotlin.Function1<0:3,0:1>){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any>;3§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any> (io.github.milanhorvatovic.reducible.runtime/Store<#A, #B>).io.github.milanhorvatovic.reducible.runtime/events(kotlin/Function1<#B, #C?>): kotlinx.coroutines.flow/Flow<#C> // io.github.milanhorvatovic.reducible.runtime/events|events@io.github.milanhorvatovic.reducible.runtime.Store<0:0,0:1>(kotlin.Function1<0:1,0:2?>){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any>}[0]
+final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/RecordingStore(#A, io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>, io.github.milanhorvatovic.reducible/EffectHandler<#C, #B>, io.github.milanhorvatovic.reducible.runtime/DefectHandler<#A, #B, #C> = ..., io.github.milanhorvatovic.reducible.runtime/StoreScope = ..., #B? = ...): io.github.milanhorvatovic.reducible.runtime/RecordingStore<#A, #B> // io.github.milanhorvatovic.reducible.runtime/RecordingStore|RecordingStore(0:0;io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.EffectHandler<0:2,0:1>;io.github.milanhorvatovic.reducible.runtime.DefectHandler<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.runtime.StoreScope;0:1?){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible.runtime/Store(#A, io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>, io.github.milanhorvatovic.reducible/EffectHandler<#C, #B>, io.github.milanhorvatovic.reducible.runtime/DefectHandler<#A, #B, #C> = ..., io.github.milanhorvatovic.reducible.runtime/StoreScope = ..., io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>? = ..., #B? = ...): io.github.milanhorvatovic.reducible.runtime/Store<#A, #B> // io.github.milanhorvatovic.reducible.runtime/Store|Store(0:0;io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.EffectHandler<0:2,0:1>;io.github.milanhorvatovic.reducible.runtime.DefectHandler<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.runtime.StoreScope;io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>?;0:1?){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
 final fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>).io.github.milanhorvatovic.reducible.runtime/plus(io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B>): io.github.milanhorvatovic.reducible.runtime/StoreObserver<#A, #B> // io.github.milanhorvatovic.reducible.runtime/plus|plus@io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>(io.github.milanhorvatovic.reducible.runtime.StoreObserver<0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
 final fun io.github.milanhorvatovic.reducible.runtime/dedicated(platform.darwin/NSObject?): io.github.milanhorvatovic.reducible.runtime/StoreScope.Dedicated // io.github.milanhorvatovic.reducible.runtime/dedicated|dedicated(platform.darwin.NSObject?){}[0]
 final fun io.github.milanhorvatovic.reducible.runtime/dispatchQueueDispatcher(platform.darwin/NSObject?): kotlinx.coroutines/CoroutineDispatcher // io.github.milanhorvatovic.reducible.runtime/dispatchQueueDispatcher|dispatchQueueDispatcher(platform.darwin.NSObject?){}[0]
 final fun io.github.milanhorvatovic.reducible.runtime/loggingDefectHandler(kotlin/Function1<io.github.milanhorvatovic.reducible.runtime/DefectException, kotlin/Unit>): io.github.milanhorvatovic.reducible.runtime/DefectHandler<kotlin/Any?, kotlin/Any?, kotlin/Any?> // io.github.milanhorvatovic.reducible.runtime/loggingDefectHandler|loggingDefectHandler(kotlin.Function1<io.github.milanhorvatovic.reducible.runtime.DefectException,kotlin.Unit>){}[0]
 final fun io.github.milanhorvatovic.reducible.runtime/rethrowingDefectHandler(): io.github.milanhorvatovic.reducible.runtime/DefectHandler<kotlin/Any?, kotlin/Any?, kotlin/Any?> // io.github.milanhorvatovic.reducible.runtime/rethrowingDefectHandler|rethrowingDefectHandler(){}[0]
+final suspend fun <#A: kotlin/Any?, #B: kotlin/Any?> (kotlinx.coroutines.flow/Flow<#A>).io.github.milanhorvatovic.reducible.runtime/feedInto(kotlin/Function1<#B, kotlin/Unit>, kotlin/Function1<#A, #B>) // io.github.milanhorvatovic.reducible.runtime/feedInto|feedInto@kotlinx.coroutines.flow.Flow<0:0>(kotlin.Function1<0:1,kotlin.Unit>;kotlin.Function1<0:0,0:1>){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
