@@ -1,0 +1,43 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.milanhorvatovic:reducible-test>
+final class <#A: kotlin/Any, #B: kotlin/Any?> io.github.milanhorvatovic.reducible.test/TestStore { // io.github.milanhorvatovic.reducible.test/TestStore|null[0]
+    final val state // io.github.milanhorvatovic.reducible.test/TestStore.state|{}state[0]
+        final fun <get-state>(): #A // io.github.milanhorvatovic.reducible.test/TestStore.state.<get-state>|<get-state>(){}[0]
+    final val stateFlow // io.github.milanhorvatovic.reducible.test/TestStore.stateFlow|{}stateFlow[0]
+        final fun <get-stateFlow>(): kotlinx.coroutines.flow/StateFlow<#A> // io.github.milanhorvatovic.reducible.test/TestStore.stateFlow.<get-stateFlow>|<get-stateFlow>(){}[0]
+
+    final fun close() // io.github.milanhorvatovic.reducible.test/TestStore.close|close(){}[0]
+    final fun expectAction(#B): io.github.milanhorvatovic.reducible.test/TestStore<#A, #B> // io.github.milanhorvatovic.reducible.test/TestStore.expectAction|expectAction(1:1){}[0]
+    final fun expectAction(#B, #A): io.github.milanhorvatovic.reducible.test/TestStore<#A, #B> // io.github.milanhorvatovic.reducible.test/TestStore.expectAction|expectAction(1:1;1:0){}[0]
+    final fun expectNoMoreActions(): io.github.milanhorvatovic.reducible.test/TestStore<#A, #B> // io.github.milanhorvatovic.reducible.test/TestStore.expectNoMoreActions|expectNoMoreActions(){}[0]
+    final fun expectState(#A): io.github.milanhorvatovic.reducible.test/TestStore<#A, #B> // io.github.milanhorvatovic.reducible.test/TestStore.expectState|expectState(1:0){}[0]
+    final fun finish(kotlin/Boolean = ...) // io.github.milanhorvatovic.reducible.test/TestStore.finish|finish(kotlin.Boolean){}[0]
+    final fun observe(kotlin/Function1<#A, kotlin/Unit>): io.github.milanhorvatovic.reducible.runtime/Subscription // io.github.milanhorvatovic.reducible.test/TestStore.observe|observe(kotlin.Function1<1:0,kotlin.Unit>){}[0]
+    final fun send(#B) // io.github.milanhorvatovic.reducible.test/TestStore.send|send(1:1){}[0]
+}
+
+final class <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible.test/ReducerScenario { // io.github.milanhorvatovic.reducible.test/ReducerScenario|null[0]
+    final fun on(#B): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerScenario.on|on(1:1){}[0]
+}
+
+final class <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> io.github.milanhorvatovic.reducible.test/ReducerVerdict { // io.github.milanhorvatovic.reducible.test/ReducerVerdict|null[0]
+    final fun andOn(#B): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.andOn|andOn(1:1){}[0]
+    final fun expect(#A): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expect|expect(1:0){}[0]
+    final fun expectEffects(kotlin/Array<out #C>...): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expectEffects|expectEffects(kotlin.Array<out|1:2>...){}[0]
+    final fun expectEnvelopes(kotlin/Array<out io.github.milanhorvatovic.reducible/EffectEnvelope<#C>>...): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expectEnvelopes|expectEnvelopes(kotlin.Array<out|io.github.milanhorvatovic.reducible.EffectEnvelope<1:2>>...){}[0]
+    final fun expectFollowUps(kotlin/Array<out #B>...): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expectFollowUps|expectFollowUps(kotlin.Array<out|1:1>...){}[0]
+    final fun expectNoEffects(): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expectNoEffects|expectNoEffects(){}[0]
+    final fun expectState(kotlin/Function1<#A, kotlin/Boolean>): io.github.milanhorvatovic.reducible.test/ReducerVerdict<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/ReducerVerdict.expectState|expectState(kotlin.Function1<1:0,kotlin.Boolean>){}[0]
+}
+
+final fun <#A: kotlin/Any, #B: kotlin/Any?, #C: kotlin/Any?> (kotlinx.coroutines.test/TestScope).io.github.milanhorvatovic.reducible.test/testStore(#A, io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>, io.github.milanhorvatovic.reducible/EffectHandler<#C, #B>, io.github.milanhorvatovic.reducible.runtime/DefectHandler<#A, #B, #C> = ...): io.github.milanhorvatovic.reducible.test/TestStore<#A, #B> // io.github.milanhorvatovic.reducible.test/testStore|testStore@kotlinx.coroutines.test.TestScope(0:0;io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>;io.github.milanhorvatovic.reducible.EffectHandler<0:2,0:1>;io.github.milanhorvatovic.reducible.runtime.DefectHandler<0:0,0:1,0:2>){0§<kotlin.Any>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C>).io.github.milanhorvatovic.reducible.test/given(#A): io.github.milanhorvatovic.reducible.test/ReducerScenario<#A, #B, #C> // io.github.milanhorvatovic.reducible.test/given|given@io.github.milanhorvatovic.reducible.Reducer<0:0,0:1,0:2>(0:0){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.milanhorvatovic.reducible/Lens<#A, #B>).io.github.milanhorvatovic.reducible.test/assertLensLaws(#A, #B) // io.github.milanhorvatovic.reducible.test/assertLensLaws|assertLensLaws@io.github.milanhorvatovic.reducible.Lens<0:0,0:1>(0:0;0:1){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.milanhorvatovic.reducible/Optional<#A, #B>).io.github.milanhorvatovic.reducible.test/assertOptionalLaws(#A, #B, kotlin/Array<out #A>...) // io.github.milanhorvatovic.reducible.test/assertOptionalLaws|assertOptionalLaws@io.github.milanhorvatovic.reducible.Optional<0:0,0:1>(0:0;0:1;kotlin.Array<out|0:0>...){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (io.github.milanhorvatovic.reducible/Prism<#A, #B>).io.github.milanhorvatovic.reducible.test/assertPrismLaws(#A, #B, kotlin/Array<out #A>...) // io.github.milanhorvatovic.reducible.test/assertPrismLaws|assertPrismLaws@io.github.milanhorvatovic.reducible.Prism<0:0,0:1>(0:0;0:1;kotlin.Array<out|0:0>...){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
