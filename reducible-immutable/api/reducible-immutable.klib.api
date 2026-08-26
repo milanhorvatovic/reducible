@@ -1,0 +1,19 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.milanhorvatovic:reducible-immutable>
+final class <#A: kotlin/Any?> io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer : kotlinx.serialization/KSerializer<kotlinx.collections.immutable/PersistentList<#A>> { // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer|null[0]
+    constructor <init>(kotlinx.serialization/KSerializer<#A>) // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer.<init>|<init>(kotlinx.serialization.KSerializer<1:0>){}[0]
+
+    final val descriptor // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer.descriptor|{}descriptor[0]
+        final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+    final fun deserialize(kotlinx.serialization.encoding/Decoder): kotlinx.collections.immutable/PersistentList<#A> // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+    final fun serialize(kotlinx.serialization.encoding/Encoder, kotlinx.collections.immutable/PersistentList<#A>) // io.github.milanhorvatovic.reducible.immutable/PersistentListSerializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;kotlinx.collections.immutable.PersistentList<1:0>){}[0]
+}
+
+final fun <#A: kotlin/Any?, #B: kotlin/Any?, #C: kotlin/Any?, #D: kotlin/Any?, #E: kotlin/Any?, #F: kotlin/Any?, #G: kotlin/Any?> (io.github.milanhorvatovic.reducible/Reducer<#D, #E, #F>).io.github.milanhorvatovic.reducible.immutable/forEachIdentified(io.github.milanhorvatovic.reducible/Optional<#A, kotlinx.collections.immutable/PersistentList<#D>>, kotlin/Function1<#D, #G>, io.github.milanhorvatovic.reducible/Prism<#B, io.github.milanhorvatovic.reducible/IdentifiedAction<#G, #E>>, kotlin/Function2<#G, #F, #C>): io.github.milanhorvatovic.reducible/Reducer<#A, #B, #C> // io.github.milanhorvatovic.reducible.immutable/forEachIdentified|forEachIdentified@io.github.milanhorvatovic.reducible.Reducer<0:3,0:4,0:5>(io.github.milanhorvatovic.reducible.Optional<0:0,kotlinx.collections.immutable.PersistentList<0:3>>;kotlin.Function1<0:3,0:6>;io.github.milanhorvatovic.reducible.Prism<0:1,io.github.milanhorvatovic.reducible.IdentifiedAction<0:6,0:4>>;kotlin.Function2<0:6,0:5,0:2>){0§<kotlin.Any?>;1§<kotlin.Any?>;2§<kotlin.Any?>;3§<kotlin.Any?>;4§<kotlin.Any?>;5§<kotlin.Any?>;6§<kotlin.Any?>}[0]

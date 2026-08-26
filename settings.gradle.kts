@@ -38,6 +38,7 @@ rootProject.name = "reducible"
 include(":reducible-core")
 include(":reducible-runtime")
 include(":reducible-test")
+include(":reducible-immutable")
 
 // The repository's own detekt rules, loaded into every module's detekt task.
 include(":detekt-rules")
