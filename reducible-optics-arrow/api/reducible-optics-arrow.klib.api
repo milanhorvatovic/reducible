@@ -1,0 +1,11 @@
+// Klib ABI Dump
+// Targets: [iosArm64, iosSimulatorArm64]
+// Rendering settings:
+// - Signature version: 2
+// - Show manifest properties: true
+// - Show declarations: true
+
+// Library unique name: <io.github.milanhorvatovic:reducible-optics-arrow>
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (arrow.optics/PLens<#A, #A, #B, #B>).io.github.milanhorvatovic.reducible.optics.arrow/asCoreLens(): io.github.milanhorvatovic.reducible/Lens<#A, #B> // io.github.milanhorvatovic.reducible.optics.arrow/asCoreLens|asCoreLens@arrow.optics.PLens<0:0,0:0,0:1,0:1>(){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (arrow.optics/POptional<#A, #A, #B, #B>).io.github.milanhorvatovic.reducible.optics.arrow/asCoreOptional(): io.github.milanhorvatovic.reducible/Optional<#A, #B> // io.github.milanhorvatovic.reducible.optics.arrow/asCoreOptional|asCoreOptional@arrow.optics.POptional<0:0,0:0,0:1,0:1>(){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
+final fun <#A: kotlin/Any?, #B: kotlin/Any?> (arrow.optics/PPrism<#A, #A, #B, #B>).io.github.milanhorvatovic.reducible.optics.arrow/asCorePrism(): io.github.milanhorvatovic.reducible/Prism<#A, #B> // io.github.milanhorvatovic.reducible.optics.arrow/asCorePrism|asCorePrism@arrow.optics.PPrism<0:0,0:0,0:1,0:1>(){0§<kotlin.Any?>;1§<kotlin.Any?>}[0]
