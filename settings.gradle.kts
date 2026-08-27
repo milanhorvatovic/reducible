@@ -44,3 +44,6 @@ include(":reducible-android")
 
 // The repository's own detekt rules, loaded into every module's detekt task.
 include(":detekt-rules")
+
+// The examples consume the library by project path; they are never published.
+include(":examples:counter")
