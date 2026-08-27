@@ -1,3 +1,4 @@
+import com.vanniktech.maven.publish.MavenPublishBaseExtension
 import io.gitlab.arturbosch.detekt.extensions.DetektExtension
 import java.time.Duration
 
@@ -10,6 +11,7 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
     alias(libs.plugins.kotlinSerialization) apply false
     alias(libs.plugins.kotlinter) apply false
+    alias(libs.plugins.mavenPublish) apply false
     alias(libs.plugins.skie) apply false
     alias(libs.plugins.binaryCompatibilityValidator)
 }
@@ -24,6 +26,44 @@ apiValidation {
     @OptIn(kotlinx.validation.ExperimentalBCVApi::class)
     klib {
         enabled = true
+    }
+}
+
+// Signing keys are supplied by the release environment (`ORG_GRADLE_PROJECT_signingInMemoryKey`
+// and friends); without them the artifacts still publish to Maven Local, which is how the
+// publication is checked without a release.
+val signingConfigured = providers.gradleProperty("signingInMemoryKey").isPresent
+
+libraryProjects.forEach { library ->
+    library.apply(plugin = "com.vanniktech.maven.publish")
+    library.configure<MavenPublishBaseExtension> {
+        publishToMavenCentral()
+        if (signingConfigured) signAllPublications()
+        pom {
+            name.set(library.name)
+            description.set("Reducible: unidirectional state for Kotlin Multiplatform (${library.name})")
+            inceptionYear.set("2026")
+            url.set("https://github.com/milanhorvatovic/reducible")
+            licenses {
+                license {
+                    name.set("MIT License")
+                    url.set("https://opensource.org/license/mit")
+                    distribution.set("repo")
+                }
+            }
+            developers {
+                developer {
+                    id.set("milanhorvatovic")
+                    name.set("Milan Horvatovič")
+                    url.set("https://github.com/milanhorvatovic")
+                }
+            }
+            scm {
+                url.set("https://github.com/milanhorvatovic/reducible")
+                connection.set("scm:git:git://github.com/milanhorvatovic/reducible.git")
+                developerConnection.set("scm:git:ssh://git@github.com/milanhorvatovic/reducible.git")
+            }
+        }
     }
 }
 
