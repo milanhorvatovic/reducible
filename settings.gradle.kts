@@ -47,3 +47,4 @@ include(":detekt-rules")
 
 // The examples consume the library by project path; they are never published.
 include(":examples:counter")
+include(":examples:koin")
