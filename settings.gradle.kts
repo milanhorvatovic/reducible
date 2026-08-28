@@ -48,3 +48,7 @@ include(":detekt-rules")
 // The examples consume the library by project path; they are never published.
 include(":examples:counter")
 include(":examples:koin")
+include(":examples:cookbook:feature-notes")
+include(":examples:cookbook:feature-session")
+include(":examples:cookbook:feature-settings")
+include(":examples:cookbook:feature-recipes")
