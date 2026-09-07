@@ -47,6 +47,7 @@ Route by what the task produces. Read only the matching file.
 | --- | --- | --- |
 | feature-authoring | Write or review one feature: its state phases, actions, effects and keys, reducer, handler, store factory, and view projection | capabilities/feature-authoring/capability.md |
 | composition | Nest a child feature or a list of rows into a parent with `ifPresent` or `forEachIdentified`, write or adapt the optics, wire the parent handler | capabilities/composition/capability.md |
+| store-wiring | Build the composition root: app-scoped and screen store factories, `StoreScope` choice, gateways over app-scoped stores, observers, recorders, defect handlers, dependency injection | capabilities/store-wiring/capability.md |
 
 A task that spans two capabilities (a new feature plus its Android screen) loads both, feature first.
 
