@@ -215,6 +215,10 @@ struct CounterView: View {
 | [`examples/koin`](examples/koin) | Dependency injection with Koin: a repository behind an interface, a store factory Koin builds, and tests that bind a fake |
 | [`examples/cookbook`](examples/cookbook) | The end-to-end showcase: four feature modules, a composition root with app-scoped and screen stores, a Compose app, a SwiftUI app, and a map from every library capability to the file that uses it |
 
+## Using the library with a coding agent
+
+The repository ships an [Agent Skill](https://agentskills.io) at [`skills/reducible`](skills/reducible): the invariants, feature and composition shapes, platform holders, and test patterns an agent needs to build on the library correctly. Install it into a project with `npx skills add milanhorvatovic/reducible`, or copy the directory into the project's `.agents/skills/` (or the tool's own skills directory) and it loads whenever the work touches a reducer, store, or view. Inside this repository `.agents/skills/reducible` is a symlink to it, so agents working here pick it up too.
+
 ## Building
 
 Requirements:
