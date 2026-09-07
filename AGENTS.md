@@ -26,4 +26,4 @@ A Kotlin Multiplatform library (`reducible-*` modules) for unidirectional state 
 
 ## Commits
 
-Conventional commits, imperative subject, ≤72 characters, body in flowing paragraphs — one source line per paragraph, no hard wrap; readers' tools wrap — explaining why when the diff does not. Scopes: `core`, `runtime`, `test`, `immutable`, `optics-arrow`, `android`, `swift`, `examples`; none for cross-cutting changes. Do not add attribution trailers unless asked.
+Conventional commits, imperative subject, ≤72 characters, body in flowing paragraphs — one source line per paragraph, no hard wrap; readers' tools wrap — explaining why when the diff does not. Scopes: `core`, `runtime`, `test`, `immutable`, `optics-arrow`, `android`, `swift`, `examples`, `skill`; none for cross-cutting changes. Do not add attribution trailers unless asked.
