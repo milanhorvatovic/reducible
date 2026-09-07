@@ -26,7 +26,7 @@ A Kotlin Multiplatform library (`reducible-*` modules) for unidirectional state 
 
 ## The agent skill
 
-`skills/reducible/` is the consumer-facing skill (router `SKILL.md`, six capabilities, an API reference); `.agents/skills/reducible` is a symlink to it, the discovery path agents scan. Edit the canonical directory, never the link. A public-API change that alters a signature, a default, or a contract described there updates the skill in the same commit; `references/api-reference.md` mirrors the API dumps in prose.
+`skills/reducible/` is the consumer-facing skill (router `SKILL.md`, six capabilities, an API reference); `.agents/skills/reducible` and `.claude/skills/reducible` are symlinks to it, the discovery paths agents scan. Edit the canonical directory, never the links. A public-API change that alters a signature, a default, or a contract described there updates the skill in the same commit; `references/api-reference.md` mirrors the API dumps in prose.
 
 ## Commits
 

@@ -16,4 +16,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `reducible-android`: `StoreViewModel` with process-death restore through `SavedStateHandle`.
 - `swift/`: `StoreModel`, `ViewStoreModel`, `ProjectedModel`, and `statePublisher` for SwiftUI and Combine.
 - Examples: `counter`, `koin`, and the Cookbook (feature modules, composition root, Compose and SwiftUI apps).
-- `skills/reducible`: an Agent Skill for coding agents building on the library — invariants, feature authoring, composition, store wiring, the Android and iOS holders, testing, and an API reference — symlinked from `.agents/skills/reducible`.
+- `skills/reducible`: an Agent Skill for coding agents building on the library — invariants, feature authoring, composition, store wiring, the Android and iOS holders, testing, and an API reference — symlinked from `.agents/skills/` and `.claude/skills/`.

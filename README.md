@@ -217,7 +217,7 @@ struct CounterView: View {
 
 ## Using the library with a coding agent
 
-The repository ships an [Agent Skill](https://agentskills.io) at [`skills/reducible`](skills/reducible): the invariants, feature and composition shapes, platform holders, and test patterns an agent needs to build on the library correctly. Install it into a project with `npx skills add milanhorvatovic/reducible`, or copy the directory into the project's `.agents/skills/` (or the tool's own skills directory) and it loads whenever the work touches a reducer, store, or view. Inside this repository `.agents/skills/reducible` is a symlink to it, so agents working here pick it up too.
+The repository ships an [Agent Skill](https://agentskills.io) at [`skills/reducible`](skills/reducible): the invariants, feature and composition shapes, platform holders, and test patterns an agent needs to build on the library correctly. Install it into a project with `npx skills add milanhorvatovic/reducible`, or copy the directory into the project's `.agents/skills/` (or the tool's own skills directory) and it loads whenever the work touches a reducer, store, or view. Inside this repository `.agents/skills/reducible` and `.claude/skills/reducible` are symlinks to it, so agents working here pick it up too.
 
 ## Building
 
