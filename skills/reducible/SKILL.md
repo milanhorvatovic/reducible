@@ -50,6 +50,7 @@ Route by what the task produces. Read only the matching file.
 | store-wiring | Build the composition root: app-scoped and screen store factories, `StoreScope` choice, gateways over app-scoped stores, observers, recorders, defect handlers, dependency injection | capabilities/store-wiring/capability.md |
 | android-holder | Hold a store on Android: ViewModel scope, `StoreViewModel` with saved state, Compose collection, event handling at the navigation host | capabilities/android-holder/capability.md |
 | ios-holder | Hold a store on iOS: the umbrella framework, `StoreModel`, `ViewStoreModel`, `ProjectedModel`, `statePublisher`, events in `.task` | capabilities/ios-holder/capability.md |
+| testing | Test a reducer with `given / on / expect`, an optic with the law assertions, or a feature end to end with `testStore` under virtual time | capabilities/testing/capability.md |
 
 A task that spans two capabilities (a new feature plus its Android screen) loads both, feature first.
 
