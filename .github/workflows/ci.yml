@@ -47,7 +47,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+      - uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
       - name: Build, test on the JVM host, lint, and check the API dumps
         run: ./gradlew build -PskipIosTests
 
@@ -61,7 +61,7 @@ jobs:
         with:
           distribution: temurin
           java-version: 21
-      - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+      - uses: gradle/actions/setup-gradle@3f5f9adaf7d9fecd50b5935e54106014257a94e6 # v6.4.0
       # The runner image ships SwiftFormat but not SwiftLint; SwiftLint is
       # pinned to the version the local hooks use, verified by checksum.
       - name: Install SwiftLint
