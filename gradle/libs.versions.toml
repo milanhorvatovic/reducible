@@ -2,7 +2,7 @@
 kotlin = "2.4.10"
 agp = "9.4.0"
 skie = "0.10.14"
-arrow = "2.2.3"
+arrow = "2.3.0.1"
 binaryCompatibilityValidator = "0.18.2"
 kotlinter = "5.7.0"
 detekt = "1.23.8"
